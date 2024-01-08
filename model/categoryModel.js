@@ -3,6 +3,9 @@ const categorySchema = mongoose.Schema({
     title: {
         type: String
     },
+    name: {
+        type: String
+    },
     weight:{
         type: String
     },
