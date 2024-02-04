@@ -76,10 +76,68 @@ const deletecategory = async(req,res)=>{
 }
 
 
+
+
+const likeCategory = async(req,res)=>{
+  const {userID,productID} = req.body;
+  const data = await categoryModel.findOne({_id: productID});
+ // res.json(data)
+ const result = await categoryModel.findByIdAndUpdate(
+    { _id: data._id },
+    { $push: {favorite: userID} },
+    { new: true }
+  );
+  res.status(200).json(result)
+}
+
+const unlikeCategory = async(req,res)=>{
+  const {userID,productID} = req.body;
+  const data = await categoryModel.findOne({_id: productID});
+  const result = await categoryModel.findByIdAndUpdate(
+    { _id: data._id },
+    { $pull: {favorite: userID} },
+    { new: true }
+  );
+  res.status(200).json(result)
+}
+const favoriteCategory = async(req,res)=>{
+  const{userID} = req.body;
+   const data = await categoryModel.find()
+    data.map((e)=>{
+   console.log(e.favorite.find((o) => o.id === userID));
+    })
+   if(data){
+    
+    // const isUserInFavorites = await data.favorite.includes(userID);
+    // if (isUserInFavorites) {
+    //   console.log('User is in favorites!');
+    // } else {
+    //   console.log('User is not in favorites.');
+    // }
+   }else{
+    console.log('Document not found');
+   }
+  //  await data.map((e)=>{
+  //  const result = e.favorite.map((r)=> r.user === userID)
+  //  console.log(result)
+  // })
+
+
+
+
+
+
+}
+
+
+
 module.exports = {
   uploadcategory,
   fetchcategory,
   updatecategory,
   deletecategory,
-  fetchCategoryById
+  fetchCategoryById,
+  likeCategory,
+  unlikeCategory,
+  favoriteCategory
 };

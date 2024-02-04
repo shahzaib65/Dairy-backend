@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const {ObjectId} = mongoose.Schema.Types
 const categorySchema = mongoose.Schema({
     title: {
         type: String
@@ -30,7 +31,8 @@ const categorySchema = mongoose.Schema({
     },
     category_image_url: {
         type: String
-    }
+    },
+    favorite:[{type:ObjectId,ref:"User"}],
 },
 {
   timestamps: true,

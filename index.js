@@ -11,7 +11,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 const connectToMongo = require('./db');
 
-//app.use("/api/user", require('./router/User'));
+app.use("/api/user", require('./router/User'));
 app.use("/api/zone",require("./router/Zone"));
 app.use("/api/cart",require("./router/Cart"));
 app.use("/api/order",require("./router/Order"));
