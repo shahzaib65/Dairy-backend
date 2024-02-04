@@ -74,10 +74,6 @@ const deletecategory = async(req,res)=>{
     res.status(400).send(error.message)
   }
 }
-
-
-
-
 const likeCategory = async(req,res)=>{
   const {userID,productID} = req.body;
   const data = await categoryModel.findOne({_id: productID })
