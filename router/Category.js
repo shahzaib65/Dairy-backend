@@ -11,7 +11,7 @@ router.delete("/delete/:id",deletecategory);
 router.get("/fetchProductById/:id",fetchCategoryById);
 router.put("/like",likeCategory);
 router.put("/unlike",unlikeCategory);
-router.get("/favorites",favoriteCategory);
+//router.get("/favorites",favoriteCategory);
 
 
 module.exports = router;
