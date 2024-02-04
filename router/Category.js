@@ -1,5 +1,5 @@
 const express = require('express');
-const { uploadcategory,fetchcategory,updatecategory,deletecategory,fetchCategoryById,likeCategory,unlikeCategory,favoriteCategory} = require('../controller/Category');
+const { uploadcategory,fetchcategory,updatecategory,deletecategory,fetchCategoryById,likeCategory,unlikeCategory} = require('../controller/Category');
 
 
 const router = express.Router();
@@ -11,7 +11,7 @@ router.delete("/delete/:id",deletecategory);
 router.get("/fetchProductById/:id",fetchCategoryById);
 router.put("/like",likeCategory);
 router.put("/unlike",unlikeCategory);
-//router.get("/favorites",favoriteCategory);
+
 
 
 module.exports = router;

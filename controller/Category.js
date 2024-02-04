@@ -108,36 +108,7 @@ const unlikeCategory = async(req,res)=>{
   }else{
     res.status(400).json({success: false, message: "Favorite is empty"})
   }
-
-
- 
 }
-const favoriteCategory = async(req,res)=>{
-  const{userID} = req.body;
-   const data = await categoryModel.find()
-    data.map((e)=>{
-   console.log(e.favorite.find())
-    })
-   if(data){
-    
-    // const isUserInFavorites = await data.favorite.includes(userID);
-    // if (isUserInFavorites) {
-    //   console.log('User is in favorites!');
-    // } else {
-    //   console.log('User is not in favorites.');
-    // }
-   }else{
-    console.log('Document not found');
-   }
- 
-
-
-
-
-
-
-}
-
 
 
 module.exports = {
@@ -147,6 +118,5 @@ module.exports = {
   deletecategory,
   fetchCategoryById,
   likeCategory,
-  unlikeCategory,
-  favoriteCategory
+  unlikeCategory
 };

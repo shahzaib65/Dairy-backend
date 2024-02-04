@@ -33,6 +33,10 @@ const categorySchema = mongoose.Schema({
         type: String
     },
     favorite:[{type:ObjectId,ref:"User"}],
+    cartQuantity:{
+        type: Number,
+        default: 5
+    }
 },
 {
   timestamps: true,
