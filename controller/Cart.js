@@ -52,9 +52,9 @@ const subCart = async(req,res)=>{
 }
 
 const fetchCart = async(req,res)=>{
-    const { userId } = req.body;
+    const { userID } = req.body;
   try {
-    const cartItems = await cartModel.find({ userId: userId }).populate([{path: 'productId'}]);
+    const cartItems = await cartModel.find({ userId: userID }).populate([{path: 'productId'}]);
     res.status(200).json({success: true,carts: cartItems});
   } catch (err) {
     res.status(500).json({success: false,message:err.message});
