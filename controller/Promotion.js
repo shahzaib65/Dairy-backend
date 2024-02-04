@@ -21,8 +21,7 @@ const uploadPromotion = async (req, res) => {
     if (result) {
      console.log(result)
         const promotion = new promotionModel(req.body);
-       promotion.promotion_image_url = result.secure_url
-
+           promotion.promotion_image_url = result.secure_url
       const doc = await promotion.save()
       res.status(200).json({ data: doc });
     }

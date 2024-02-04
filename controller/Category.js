@@ -38,6 +38,14 @@ const fetchcategory = async(req,res)=>{
      res.status(500).json(error.message)
    }
 }
+const fetchCategoryById = async(req,res)=>{
+  try {
+    const category = await categoryModel.findById({_id: req.params.id})
+    res.status(200).json(category)
+  } catch (error) {
+    res.status(500).json(error.message);
+  }
+}
 
 const updatecategory = async(req,res)=>{
   try {
@@ -72,5 +80,6 @@ module.exports = {
   uploadcategory,
   fetchcategory,
   updatecategory,
-  deletecategory
+  deletecategory,
+  fetchCategoryById
 };
