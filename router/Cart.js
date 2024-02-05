@@ -5,7 +5,7 @@ const { route } = require('./Zone');
 const router = express.Router();
 //login route
 router.post("/addToCart", addCart);
-router.get("/fetch",fetchCart);
+router.post("/fetch",fetchCart);
 router.put("/update/:id",updateCart);
 router.delete("/delete/:id",deleteFromCart);
 router.post("/sub",subCart);

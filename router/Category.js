@@ -8,7 +8,7 @@ router.post("/upload", uploadcategory);
 router.get("/fetch",fetchcategory);
 router.put("/update/:id",updatecategory);
 router.delete("/delete/:id",deletecategory);
-router.get("/fetchProductById/:id",fetchCategoryById);
+router.post("/fetchProductById",fetchCategoryById);
 router.put("/like",likeCategory);
 router.put("/unlike",unlikeCategory);
 

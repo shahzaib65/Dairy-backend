@@ -40,10 +40,11 @@ const fetchcategory = async(req,res)=>{
 }
 const fetchCategoryById = async(req,res)=>{
   try {
-    const category = await categoryModel.findById({_id: req.params.id})
-    res.status(200).json(category)
+    const {productId} = req.body;
+    const category = await categoryModel.findById({_id: productId})
+    res.status(200).json({success: true, category})
   } catch (error) {
-    res.status(500).json(error.message);
+    res.status(500).json({success: false, message: error.message});
   }
 }
 
